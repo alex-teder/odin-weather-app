@@ -1,8 +1,11 @@
 import { weatherData } from "./weather-data";
+import { renderError, renderWeather } from "./display";
 
 weatherData
   .getData("Tbilisi")
-  .then()
+  .then((data) => {
+    renderWeather(data);
+  })
   .catch((error) => {
-    console.log("🙂", error);
+    renderError(error.message);
   });

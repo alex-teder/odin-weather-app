@@ -11,12 +11,12 @@ export const weatherData = {
       `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3`
     );
     if (!response.ok) {
-      throw new Error(response.status);
+      throw new Error("Error fetching data: " + response.status);
     }
     const data = await response.json();
 
     this.cityName = data.location.name;
-    this.currentTemp = data.current.temp_c;
+    this.currentTemp = data.current.temp_c + "°C";
     this.currentCondIcon = data.current.condition.icon;
     this.currentCondText = data.current.condition.text;
     this.isDayNow = data.current.is_day;
@@ -24,19 +24,19 @@ export const weatherData = {
     const forecastArray = data.forecast.forecastday;
     this.dayAfterTomorrow = getDayAfterTomorrow(data.location.localtime);
 
-    this.forecast.today.maxtemp = forecastArray[0].day.maxtemp_c;
-    this.forecast.today.mintemp = forecastArray[0].day.mintemp_c;
+    this.forecast.today.maxtemp = forecastArray[0].day.maxtemp_c.toFixed(0) + "°C";
+    this.forecast.today.mintemp = forecastArray[0].day.mintemp_c.toFixed(0) + "°C";
     this.forecast.today.condIcon = forecastArray[0].day.condition.icon;
 
-    this.forecast.tomorrow.maxtemp = forecastArray[1].day.maxtemp_c;
-    this.forecast.tomorrow.mintemp = forecastArray[1].day.mintemp_c;
+    this.forecast.tomorrow.maxtemp = forecastArray[1].day.maxtemp_c.toFixed(0) + "°C";
+    this.forecast.tomorrow.mintemp = forecastArray[1].day.mintemp_c.toFixed(0) + "°C";
     this.forecast.tomorrow.condIcon = forecastArray[1].day.condition.icon;
 
-    this.forecast.dayAfterTomorrow.maxtemp = forecastArray[2].day.maxtemp_c;
-    this.forecast.dayAfterTomorrow.mintemp = forecastArray[2].day.mintemp_c;
+    this.forecast.dayAfterTomorrow.maxtemp = forecastArray[2].day.maxtemp_c.toFixed(0) + "°C";
+    this.forecast.dayAfterTomorrow.mintemp = forecastArray[2].day.mintemp_c.toFixed(0) + "°C";
     this.forecast.dayAfterTomorrow.condIcon = forecastArray[2].day.condition.icon;
 
-    this.feelsLike = data.current.feelslike_c + "";
+    this.feelsLike = data.current.feelslike_c + "°C";
     this.chanceOfPrecip = getChanceOfPrecip(
       data.forecast.forecastday[0].hour,
       data.location.localtime
@@ -47,6 +47,8 @@ export const weatherData = {
     this.windDegree = data.current.wind_degree;
     this.humidity = data.current.humidity + "%";
     this.uvLevel = getUVLevel(data.current.uv);
+
+    return this;
   },
 };
 
