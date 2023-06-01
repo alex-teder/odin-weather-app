@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>weather app | teder-kedr</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="flex-container">
+    <div class="page-container">
+
+      <form class="searchbar" autocomplete="off" spellcheck="false">
+        <button type="button" id="user-location-button" class="button searchbar__button">My Location</button>
+        <input type="text" name="search-field" id="search-field" placeholder="Enter your city...">
+        <button type="submit" id="search-button" class="button searchbar__button">Search</button>
+      </form>
+
+      <ul class="cities-list">
+        <!-- <li><button class="button city-button">Yekaterinburg</button></li> -->
+      </ul>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__item">
+      <p class="footer__text">data provided by <button class="button" onclick="">weatherapi.com<div class="icon"></div>
+        </button>
+      </p>
+    </div>
+  </footer>
+
+  <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,394 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url(../src/fonts/OpenSans-Regular.ttf) format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url(../src/fonts/OpenSans-Bold.ttf) format("truetype");
+  font-weight: bold;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.button {
+  cursor: pointer;
+  color: inherit;
+}
+
+input,
+a,
+a:visited,
+a:active {
+  color: inherit;
+}
+
+:root {
+  font-size: 18px;
+}
+
+body {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+body {
+  --clr-borders: #ddd;
+  --clr-bkg-sunny-day: #6294f7;
+  --grad-sunny-day: linear-gradient(247deg, #74A3FF 0%, #407DF4 100%);
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--clr-bkg-sunny-day);
+  background: var(--grad-sunny-day);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.flex-container {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-container {
+  padding-block: 3rem;
+  max-width: 15rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  padding-inline: 1rem;
+  font-size: 0.75rem;
+  width: 100%;
+  height: 3.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.footer__text {
+  text-align: right;
+  color: rgba(255, 255, 255, 0.75);
+  opacity: 1;
+}
+.footer .icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 0.25rem;
+  transform: translateY(1px);
+  background-image: url(../src/img/box-arrow-up-right.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.footer a {
+  text-decoration: none;
+}
+.footer .button {
+  padding: 0;
+  background: none;
+  border: none;
+  display: inline;
+}
+.footer .button:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    margin: 0;
+    margin-inline: auto;
+    margin-block: 0.5rem;
+    min-width: 30rem;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+  }
+}
+@media (min-width: 768px) and (max-height: 750px) {
+  body {
+    background: var(--clr-bkg-sunny-day);
+  }
+}
+body {
+  --clr-borders: #ddd;
+  --clr-bkg-sunny-day: #6294f7;
+  --grad-sunny-day: linear-gradient(247deg, #74A3FF 0%, #407DF4 100%);
+}
+
+.searchbar {
+  width: 100%;
+  height: 2.5rem;
+  border: 1px solid var(--clr-borders);
+  padding-inline: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.searchbar__button {
+  height: 1rem;
+  width: 1rem;
+  flex-shrink: 0;
+  font-size: 0;
+  background: none;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#user-location-button {
+  background-image: url(../src/img/geo-alt.svg);
+  margin-inline: 2px;
+}
+
+#search-button {
+  background-image: url(../src/img/search.svg);
+  margin-inline: 4px;
+}
+
+#search-field {
+  width: 100%;
+  background: none;
+  border: none;
+}
+#search-field:focus {
+  outline: none;
+}
+#search-field::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cities-list {
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.city-button {
+  background: none;
+  border: 1px solid var(--clr-borders);
+}
+
+@media (min-width: 768px) {
+  .searchbar {
+    height: 3.5rem;
+    padding-inline: 0.25rem;
+  }
+  .searchbar__button {
+    width: 2rem;
+    height: 2rem;
+  }
+  #search-field {
+    font-size: 1.5rem;
+    flex-grow: 1;
+  }
+  #user-location-button {
+    margin-left: 4px;
+  }
+  #search-button {
+    margin-right: 8px;
+  }
+  .cities-list {
+    font-size: 1rem;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+  .city-button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+body {
+  --clr-borders: #ddd;
+  --clr-bkg-sunny-day: #6294f7;
+  --grad-sunny-day: linear-gradient(247deg, #74A3FF 0%, #407DF4 100%);
+}
+
+.main {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.main__head-container {
+  padding-block: 1rem;
+}
+
+#city-name {
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+.main__temp-container {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#current-temp {
+  font-size: 3.25rem;
+}
+
+#current-cond-text {
+  width: fit-content;
+  font-size: 1.25rem;
+}
+
+.forecast {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.forecast__item {
+  width: fit-content;
+  padding: 0.5rem 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.forecast__item:nth-child(1), .forecast__item:nth-child(2) {
+  border-bottom: 1px solid var(--clr-borders);
+}
+
+#forecast-temp-today,
+#forecast-temp-tomorrow,
+#forecast-temp-day-after-tomorrow {
+  font-weight: 400;
+}
+
+.main__current-info {
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#wind-direction-arrow {
+  display: inline-block;
+  margin-inline: 0.5rem;
+  transform: rotate(0);
+}
+
+#uv-index {
+  color: inherit;
+}
+
+@media (min-width: 768px) {
+  .main {
+    border: 1px solid var(--clr-borders);
+  }
+  .main__head-container {
+    padding: 2.15rem;
+    padding-bottom: 1rem;
+  }
+  .main__info-container {
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  .main__current-info {
+    padding-top: unset;
+  }
+  #city-name {
+    width: fit-content;
+    font-size: 2.5rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+  }
+  #current-temp {
+    height: 40px;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #current-cond-text {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  .forecast {
+    order: 2;
+  }
+}
+.error {
+  padding-top: 1rem;
+}
+.error__text::before {
+  content: "";
+  display: inline-block;
+  transform: translateY(2px);
+  margin-right: 0.3rem;
+  height: 16px;
+  width: 16px;
+  background-image: url(../src/img/warning_26a0-fe0f.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/*# sourceMappingURL=style.css.map */
