@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Open Sans";
-  src: url(../src/fonts/OpenSans-Regular.ttf) format("truetype");
+  src: url(../assets/fonts/OpenSans-Regular.ttf) format("truetype");
   font-weight: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url(../src/fonts/OpenSans-Bold.ttf) format("truetype");
+  src: url(../assets/fonts/OpenSans-Bold.ttf) format("truetype");
   font-weight: bold;
 }
 *,
@@ -135,7 +135,7 @@ body {
   height: 14px;
   margin-left: 0.25rem;
   transform: translateY(1px);
-  background-image: url(../src/img/box-arrow-up-right.svg);
+  background-image: url(../assets/img/box-arrow-up-right.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -199,12 +199,12 @@ body {
 }
 
 #user-location-button {
-  background-image: url(../src/img/geo-alt.svg);
+  background-image: url(../assets/img/geo-alt.svg);
   margin-inline: 2px;
 }
 
 #search-button {
-  background-image: url(../src/img/search.svg);
+  background-image: url(../assets/img/search.svg);
   margin-inline: 4px;
 }
 
@@ -385,7 +385,7 @@ body {
   margin-right: 0.3rem;
   height: 16px;
   width: 16px;
-  background-image: url(../src/img/warning_26a0-fe0f.png);
+  background-image: url(../assets/img/warning_26a0-fe0f.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
