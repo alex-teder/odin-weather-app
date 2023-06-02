@@ -35,14 +35,16 @@
 .forecast {
   font-size: 0.9rem;
   font-weight: bold;
+  max-width: 13rem;
 
   &__item {
-    width: fit-content;
+    // width: fit-content;
     padding: 0.5rem 0.25rem;
 
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 
     &:nth-child(1),
     &:nth-child(2) {
@@ -62,6 +64,7 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 0.5rem;
 }
 
@@ -80,12 +83,13 @@
     border: 1px solid var(--clr-borders);
 
     &__head-container {
-      padding: 2.15rem;
+      padding: 2rem;
       padding-bottom: 1rem;
     }
 
     &__info-container {
       padding-bottom: 2rem;
+      padding-inline: 0.5rem;
 
       display: flex;
       justify-content: space-around;

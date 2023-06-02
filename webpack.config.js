@@ -6,5 +6,6 @@ module.exports = {
     filename: "app.js",
     clean: true,
   },
+  watch: true,
   entry: "./js/index.js",
 };
