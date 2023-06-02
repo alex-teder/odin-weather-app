@@ -21,7 +21,9 @@ export const renderWeather = function (data) {
       <h2 id="city-name">${data.cityName}</h2>
       <div class="main__temp-container">
         <span id="current-temp">${data.currentTemp}</span>
-        <img class="icon" id="current-cond-icon" src="${data.currentCondIcon}" alt="${data.currentCondText}" width="64" height="64">
+        <img class="icon" id="current-cond-icon" src="http:${data.currentCondIcon}" alt="${
+    data.currentCondText
+  }" width="64" height="64">
       </div>
       <p id="current-cond-text">${data.currentCondText}</p>
     </div>
@@ -32,23 +34,35 @@ export const renderWeather = function (data) {
         <div class="forecast__item" data-index="0">
           <p class="forecast__text">
             Today:<br>
-            <span id="forecast-temp-today">max ${data.forecast.today.maxtemp}, min ${data.forecast.today.mintemp}</span>
+            <span id="forecast-temp-today">max ${data.forecast.today.maxtemp}, min ${
+    data.forecast.today.mintemp
+  }</span>
           </p>
-          <img class="forecast__icon" src="${data.forecast.today.condIcon}" alt="" width="32" height="32">
+          <img class="forecast__icon" src="http:${
+            data.forecast.today.condIcon
+          }" alt="" width="32" height="32">
         </div>
         <div class="forecast__item">
           <p class="forecast__text">
             Tomorrow:<br>
-            <span id="forecast-temp-tomorrow">max ${data.forecast.tomorrow.maxtemp}, min ${data.forecast.tomorrow.mintemp}</span>
+            <span id="forecast-temp-tomorrow">max ${data.forecast.tomorrow.maxtemp}, min ${
+    data.forecast.tomorrow.mintemp
+  }</span>
           </p>
-          <img class="forecast__icon" src="${data.forecast.tomorrow.condIcon}" alt="" width="32" height="32">
+          <img class="forecast__icon" src="http:${
+            data.forecast.tomorrow.condIcon
+          }" alt="" width="32" height="32">
         </div>
         <div class="forecast__item">
           <p class="forecast__text">
             <span id="day-after-tomorrow">${data.dayAfterTomorrow}</span>:<br>
-            <span id="forecast-temp-day-after-tomorrow">max ${data.forecast.dayAfterTomorrow.maxtemp}, min ${data.forecast.dayAfterTomorrow.mintemp}</span>
+            <span id="forecast-temp-day-after-tomorrow">max ${
+              data.forecast.dayAfterTomorrow.maxtemp
+            }, min ${data.forecast.dayAfterTomorrow.mintemp}</span>
           </p>
-          <img class="forecast__icon" src="${data.forecast.dayAfterTomorrow.condIcon}" alt="" width="32" height="32">
+          <img class="forecast__icon" src="http:${
+            data.forecast.dayAfterTomorrow.condIcon
+          }" alt="" width="32" height="32">
         </div>
       </div>
 
@@ -59,7 +73,9 @@ export const renderWeather = function (data) {
         <p>Air pressure: <span id="air-pressure">${data.airPressure}</span></p>
         <p>Wind: <span id="wind-speed">${data.windSpeed}</span>
           <img class="icon" id="wind-direction-arrow" src="./assets/img/Arrow.svg"
-            alt="arrow pointing to the direction of the wind" height="18px" style="transform: rotate(${data.windDegree}deg)">
+            alt="arrow pointing to the direction of the wind" height="18px" style="transform: rotate(${
+              data.windDegree + 180
+            }deg)">
         </p>
         <p>Humidity: <span id="humidity">${data.humidity}</span></p>
         <p>UV index: <span id="uv-index">${data.uvLevel}</span></p>

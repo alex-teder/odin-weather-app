@@ -14,6 +14,7 @@ export const weatherData = {
       throw new Error("Error fetching data: " + response.status);
     }
     const data = await response.json();
+    console.log(data);
 
     this.cityName = data.location.name;
     this.currentTemp = data.current.temp_c + "°C";
@@ -36,7 +37,7 @@ export const weatherData = {
     this.forecast.dayAfterTomorrow.mintemp = forecastArray[2].day.mintemp_c.toFixed(0) + "°C";
     this.forecast.dayAfterTomorrow.condIcon = forecastArray[2].day.condition.icon;
 
-    this.feelsLike = data.current.feelslike_c + "°C";
+    this.feelsLike = data.current.feelslike_c.toFixed(0) + "°C";
     this.chanceOfPrecip = getChanceOfPrecip(
       data.forecast.forecastday[0].hour,
       data.location.localtime
