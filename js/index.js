@@ -51,3 +51,10 @@ document.querySelector("#user-location-button").addEventListener("click", async 
     renderError(error);
   }
 });
+
+document.querySelector(".cities-list").addEventListener("click", (event) => {
+  if (!event.target.classList.contains("city-button")) {
+    return;
+  }
+  getWeather(event.target.dataset.city);
+});

@@ -7,7 +7,6 @@ export const history = {
     const string = localStorage.getItem("history");
     const arr = JSON.parse(string);
     this.data = [...arr];
-    console.log(this.data);
   },
   clearStorage: function () {
     localStorage.removeItem("history");
