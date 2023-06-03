@@ -56,14 +56,19 @@ export const weatherData = {
 function convertToISO8601(dateString) {
   const [datePart, timePart] = dateString.split(" ");
   const [year, month, day] = datePart.split("-");
-  const [hours, minutes] = timePart.split(":");
+  let [hours, minutes] = timePart.split(":");
+  if (hours.length < 2) {
+    hours = "0" + hours;
+  }
   return `${year}-${month}-${day}T${hours}:${minutes}:00`;
 }
 
 function getDayAfterTomorrow(dateString) {
   const formattedDate = convertToISO8601(dateString);
+  console.log(formattedDate);
   const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   let today = new Date(formattedDate);
+  console.log(today);
   today = today.getDay();
   return daysOfWeek[today + 2] || daysOfWeek[today - 5];
 }
