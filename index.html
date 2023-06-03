@@ -18,6 +18,7 @@
         <input type="text" name="search-field" id="search-field" placeholder="Enter your city..." maxlength="50">
         <button type="submit" id="search-button" class="button searchbar__button">Search</button>
       </form>
+      <ul id="suggestion-list"></ul>
 
       <ul class="cities-list">
         <!-- <li><button class="button city-button">Yekaterinburg</button></li> -->
@@ -28,12 +29,19 @@
 
   <footer class="footer">
     <div class="footer__item">
-      <p class="footer__text">data provided by <button class="button" onclick="">weatherapi.com<div class="icon"></div>
+      <p class="footer__text">data provided by <button class="button" onclick="openLinkInNewTab()">weatherapi.com<div
+            class="icon"></div>
         </button>
       </p>
     </div>
   </footer>
 
+  <script>
+    function openLinkInNewTab() {
+      const url = 'https://www.weatherapi.com';
+      window.open(url, '_blank');
+    }
+  </script>
   <script src="./dist/app.js"></script>
 </body>
 
