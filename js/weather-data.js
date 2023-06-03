@@ -14,10 +14,10 @@ export const weatherData = {
       throw new Error("Error fetching data: " + response.status);
     }
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
 
     this.cityName = data.location.name;
-    this.currentTemp = data.current.temp_c + "°C";
+    this.currentTemp = data.current.temp_c.toFixed(0) + "°C";
     this.currentCondIcon = data.current.condition.icon;
     this.currentCondText = data.current.condition.text;
     this.isDayNow = data.current.is_day;

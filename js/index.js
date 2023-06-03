@@ -1,19 +1,21 @@
 import { weatherData } from "./weather-data";
 import { renderError, renderWeather } from "./display";
 
-function getLocalWeather() {
-  navigator.geolocation.getCurrentPosition((data) => {
-    const latitude = data.coords.latitude;
-    const longitude = data.coords.longitude;
-    const query = `${latitude},${longitude}`;
-    weatherData
-      .getData(query)
-      .then((data) => {
-        renderWeather(data);
-      })
-      .catch((error) => {
-        renderError(error.message);
-      });
+function getUserLocation() {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      reject("Your browser doesn't support geolocation!");
+    }
+    navigator.geolocation.getCurrentPosition(
+      (data) => {
+        const latitude = data.coords.latitude;
+        const longitude = data.coords.longitude;
+        resolve(`${latitude},${longitude}`);
+      },
+      (error) => {
+        reject("Couldn't get your location!");
+      }
+    );
   });
 }
 
@@ -35,5 +37,11 @@ document.querySelector("#search-button").addEventListener("click", (event) => {
 });
 
 document.querySelector("#user-location-button").addEventListener("click", async () => {
-  getLocalWeather();
+  try {
+    document.querySelector("#search-field").value = "";
+    const position = await getUserLocation();
+    getWeather(position);
+  } catch (error) {
+    renderError(error);
+  }
 });
