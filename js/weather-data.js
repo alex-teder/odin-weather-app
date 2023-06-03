@@ -8,7 +8,7 @@ export const weatherData = {
   getData: async function (location) {
     const apiKey = "baccad5e87644ed197c133503233005";
     const response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3`
+      `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3`
     );
     if (!response.ok) {
       throw new Error("Error fetching data: " + response.status);
