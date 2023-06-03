@@ -49,6 +49,19 @@ export const weatherData = {
     this.humidity = data.current.humidity + "%";
     this.uvLevel = getUVLevel(data.current.uv);
 
+    this.currentTemp = removeMinusBeforeZero(this.currentTemp);
+    this.forecast.today.maxtemp = removeMinusBeforeZero(this.forecast.today.maxtemp);
+    this.forecast.today.mintemp = removeMinusBeforeZero(this.forecast.today.mintemp);
+    this.forecast.tomorrow.maxtemp = removeMinusBeforeZero(this.forecast.tomorrow.maxtemp);
+    this.forecast.tomorrow.mintemp = removeMinusBeforeZero(this.forecast.tomorrow.mintemp);
+    this.forecast.dayAfterTomorrow.maxtemp = removeMinusBeforeZero(
+      this.forecast.dayAfterTomorrow.maxtemp
+    );
+    this.forecast.dayAfterTomorrow.mintemp = removeMinusBeforeZero(
+      this.forecast.dayAfterTomorrow.mintemp
+    );
+    this.feelsLike = removeMinusBeforeZero(this.feelsLike);
+
     return this;
   },
 };
@@ -71,6 +84,13 @@ function getDayAfterTomorrow(dateString) {
   console.log(today);
   today = today.getDay();
   return daysOfWeek[today + 2] || daysOfWeek[today - 5];
+}
+
+function removeMinusBeforeZero(string) {
+  if (string === "-0°C") {
+    return "0°C";
+  }
+  return string;
 }
 
 function getChanceOfPrecip(data, time) {
