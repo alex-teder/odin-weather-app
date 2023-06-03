@@ -1,5 +1,6 @@
 import { weatherData } from "./weather-data";
-import { renderError, renderWeather } from "./display";
+import { renderError, renderWeather, renderHistory } from "./display";
+import { history } from "./history";
 
 function getUserLocation() {
   return new Promise((resolve, reject) => {
@@ -24,11 +25,16 @@ function getWeather(position) {
     .getData(position)
     .then((data) => {
       renderWeather(data);
+      history.push(data.cityName);
+      renderHistory(history.data);
     })
     .catch((error) => {
       renderError(error.message);
     });
 }
+
+history.getFromStorage();
+renderHistory(history.data);
 
 document.querySelector("#search-button").addEventListener("click", (event) => {
   event.preventDefault();

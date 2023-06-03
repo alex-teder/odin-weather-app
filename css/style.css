@@ -221,12 +221,13 @@ body {
 }
 
 .cities-list {
-  width: 100%;
   margin-top: 0.5rem;
+  width: 100%;
   font-size: 0.9rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 0.5rem;
 }
 
 .city-button {
@@ -255,8 +256,6 @@ body {
   }
   .cities-list {
     font-size: 1rem;
-    justify-content: flex-start;
-    gap: 0.75rem;
   }
   .city-button:hover {
     background-color: rgba(255, 255, 255, 0.05);

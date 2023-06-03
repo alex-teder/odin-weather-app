@@ -96,6 +96,14 @@ export const renderWeather = function (data) {
   // }
 };
 
+export const renderHistory = function (data) {
+  const list = document.querySelector(".cities-list");
+  list.innerHTML = "";
+  for (let item of data) {
+    list.innerHTML += `<li><button class="button city-button" data-city="${item}">${item}</button></li>`;
+  }
+};
+
 function resetMain() {
   const container = document.querySelector(".page-container");
   const mains = document.querySelectorAll("main");
