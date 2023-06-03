@@ -87,13 +87,13 @@ export const renderWeather = function (data) {
   container.appendChild(main);
 
   const uvLevelSpan = document.querySelector("#uv-index");
-  // if (data.uvLevel === "low") {
-  //   uvLevelSpan.style.color = "green";
-  // } else if (data.uvLevel === "moderate") {
-  //   uvLevelSpan.style.color = "yellow";
-  // } else if (data.uvLevel === "high") {
-  //   uvLevelSpan.style.color = "red";
-  // }
+  if (data.uvLevel === "low") {
+    uvLevelSpan.style.color = "#00d300";
+  } else if (data.uvLevel === "moderate") {
+    uvLevelSpan.style.color = "yellow";
+  } else if (data.uvLevel === "high") {
+    uvLevelSpan.style.color = "#ff1d1d";
+  }
 };
 
 export const renderHistory = function (data) {
