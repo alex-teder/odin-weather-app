@@ -104,6 +104,19 @@ export const renderHistory = function (data) {
   }
 };
 
+export const renderSuggestions = function (array) {
+  const list = document.querySelector("#suggestion-list");
+  list.innerHTML = "";
+  if (array.length === 0) {
+    list.style.display = "none";
+  } else {
+    list.style.display = "block";
+  }
+  for (let item of array) {
+    list.innerHTML += `<li class="button suggestion" data-coords="${item.lat},${item.lon}">${item.name}, ${item.country}</li>`;
+  }
+};
+
 function resetMain() {
   const container = document.querySelector(".page-container");
   const mains = document.querySelectorAll("main");

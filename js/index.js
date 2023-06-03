@@ -1,6 +1,7 @@
 import { weatherData } from "./weather-data";
-import { renderError, renderWeather, renderHistory } from "./display";
+import { renderError, renderWeather, renderHistory, renderSuggestions } from "./display";
 import { history } from "./history";
+import { getSearchSuggestions } from "./search-suggestions";
 
 function getUserLocation() {
   return new Promise((resolve, reject) => {
@@ -58,4 +59,23 @@ document.querySelector(".cities-list").addEventListener("click", (event) => {
   }
   document.querySelector("#search-field").value = "";
   getWeather(event.target.dataset.city);
+});
+
+document.querySelector("#search-field").addEventListener("input", () => {
+  const input = document.querySelector("#search-field").value;
+  if (input === "") {
+    renderSuggestions([]);
+    return;
+  }
+  getSearchSuggestions(input).then((array) => {
+    renderSuggestions(array);
+  });
+});
+
+document.body.addEventListener("click", (event) => {
+  if (event.target.classList.contains("suggestion")) {
+    document.querySelector("#search-field").value = "";
+    getWeather(event.target.dataset.coords);
+  }
+  document.querySelector("#suggestion-list").style.display = "none";
 });
