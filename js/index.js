@@ -56,5 +56,6 @@ document.querySelector(".cities-list").addEventListener("click", (event) => {
   if (!event.target.classList.contains("city-button")) {
     return;
   }
+  document.querySelector("#search-field").value = "";
   getWeather(event.target.dataset.city);
 });
