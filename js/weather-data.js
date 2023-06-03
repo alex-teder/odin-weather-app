@@ -53,9 +53,18 @@ export const weatherData = {
   },
 };
 
+function convertToISO8601(dateString) {
+  const [datePart, timePart] = dateString.split(" ");
+  const [year, month, day] = datePart.split("-");
+  const [hours, minutes] = timePart.split(":");
+  return `${year}-${month}-${day}T${hours}:${minutes}:00`;
+}
+
 function getDayAfterTomorrow(dateString) {
+  const formattedDate = convertToISO8601(dateString);
   const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const today = new Date(dateString).getDay();
+  let today = new Date(formattedDate);
+  today = today.getDay();
   return daysOfWeek[today + 2] || daysOfWeek[today - 5];
 }
 

@@ -4,9 +4,11 @@ export const history = {
     localStorage.setItem("history", string);
   },
   getFromStorage: function () {
-    const string = localStorage.getItem("history");
-    const arr = JSON.parse(string);
-    this.data = [...arr];
+    if (localStorage.getItem("history")) {
+      const string = localStorage.getItem("history");
+      const arr = JSON.parse(string);
+      this.data = [...arr];
+    }
   },
   clearStorage: function () {
     localStorage.removeItem("history");
