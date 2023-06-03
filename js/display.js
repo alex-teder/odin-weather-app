@@ -21,7 +21,7 @@ export const renderWeather = function (data) {
       <h2 id="city-name">${data.cityName}</h2>
       <div class="main__temp-container">
         <span id="current-temp">${data.currentTemp}</span>
-        <img class="icon" id="current-cond-icon" src="http:${data.currentCondIcon}" alt="${
+        <img class="icon" id="current-cond-icon" src="https:${data.currentCondIcon}" alt="${
     data.currentCondText
   }" width="64" height="64">
       </div>
@@ -38,7 +38,7 @@ export const renderWeather = function (data) {
     data.forecast.today.mintemp
   }</span>
           </p>
-          <img class="forecast__icon" src="http:${
+          <img class="forecast__icon" src="https:${
             data.forecast.today.condIcon
           }" alt="" width="32" height="32">
         </div>
@@ -49,7 +49,7 @@ export const renderWeather = function (data) {
     data.forecast.tomorrow.mintemp
   }</span>
           </p>
-          <img class="forecast__icon" src="http:${
+          <img class="forecast__icon" src="https:${
             data.forecast.tomorrow.condIcon
           }" alt="" width="32" height="32">
         </div>
@@ -60,7 +60,7 @@ export const renderWeather = function (data) {
               data.forecast.dayAfterTomorrow.maxtemp
             }, min ${data.forecast.dayAfterTomorrow.mintemp}</span>
           </p>
-          <img class="forecast__icon" src="http:${
+          <img class="forecast__icon" src="https:${
             data.forecast.dayAfterTomorrow.condIcon
           }" alt="" width="32" height="32">
         </div>
