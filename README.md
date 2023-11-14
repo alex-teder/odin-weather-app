@@ -1,7 +1,7 @@
 # Weather App
 
 ## Live link:
-https://teder-kedr.github.io/odin-weather-app/
+https://alex-teder.github.io/odin-weather-app/
 
 A minimalistic weather app made with SCSS and Vanilla JS.
 
